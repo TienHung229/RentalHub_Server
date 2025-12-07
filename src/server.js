@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 const fs = require("fs");
 
 const server = require("http").createServer(app);
@@ -19,7 +19,10 @@ const cors = require("cors");
 const path = require("path");
 const cookie = require("cookie");
 
-app.use(cors({ origin: process.env.CLIENT_URL, credentials: true }));
+app.use(cors({ 
+  origin: true, // hoặc '*' 
+  credentials: true 
+}));
 
 const connectDB = require("./config/ConnectDB");
 const routes = require("./routes/index");
@@ -77,6 +80,6 @@ app.post("/api/add-search", (req, res) => {
   return res.status(200).json({ message: "Thêm từ khóa thành công" });
 });
 
-server.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
+server.listen(port, '0.0.0.0', () => { // ✅ thêm '0.0.0.0'
+  console.log(`Server running on port ${port}`);
 });
