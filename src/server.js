@@ -19,10 +19,13 @@ const cors = require("cors");
 const path = require("path");
 const cookie = require("cookie");
 
-app.use(cors({ 
-  origin: true, // hoặc '*' 
-  credentials: true 
-}));
+app.use(
+  cors({
+    origin: process.env.CLIENT_URL || "https://rentalhubclient.vercel.app/",
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  })
+);
 
 const connectDB = require("./config/ConnectDB");
 const routes = require("./routes/index");
@@ -80,6 +83,7 @@ app.post("/api/add-search", (req, res) => {
   return res.status(200).json({ message: "Thêm từ khóa thành công" });
 });
 
-server.listen(port, '0.0.0.0', () => { // ✅ thêm '0.0.0.0'
+server.listen(port, "0.0.0.0", () => {
+  // ✅ thêm '0.0.0.0'
   console.log(`Server running on port ${port}`);
 });

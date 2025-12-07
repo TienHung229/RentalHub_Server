@@ -148,7 +148,9 @@ class PaymentsController {
             typePayment: "MOMO",
             status: "success",
           });
-          return res.redirect(`http://localhost:5173/trang-ca-nhan`);
+          return res.redirect(
+            `https://rentalhubclient.vercel.app/trang-ca-nhan`
+          );
         }
       }
     }
@@ -177,9 +179,13 @@ class PaymentsController {
             typePayment: "VNPAY",
             status: "success",
           });
-          return res.redirect(`http://localhost:5173/trang-ca-nhan`);
+          return res.redirect(
+            `https://rentalhubclient.vercel.app/trang-ca-nhan`
+          );
         } else {
-          return res.redirect(`http://localhost:5173/trang-ca-nhan`);
+          return res.redirect(
+            `https://rentalhubclient.vercel.app/trang-ca-nhan`
+          );
         }
       }
     }
