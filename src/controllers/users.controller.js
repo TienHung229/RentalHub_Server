@@ -53,7 +53,7 @@ class controllerUsers {
             res.cookie('logged', 1, {
                 httpOnly: false, // Chặn truy cập từ JavaScript (bảo mật hơn)
                 secure: true, // Chỉ gửi trên HTTPS (để đảm bảo an toàn)
-                sameSite: 'Strict', // Chống tấn công CSRF
+                sameSite: 'None', // Chống tấn công CSRF
                 maxAge: 7 * 24 * 60 * 60 * 1000, // 7 ngày
             });
 
@@ -61,7 +61,7 @@ class controllerUsers {
             res.cookie('refreshToken', refreshToken, {
                 httpOnly: true,
                 secure: true,
-                sameSite: 'Strict',
+                sameSite: 'None',
                 maxAge: 7 * 24 * 60 * 60 * 1000, // 7 ngày
             });
             new Created({ message: 'Đăng ký thành công', metadata: { token, refreshToken } }).send(res);
@@ -91,14 +91,14 @@ class controllerUsers {
         res.cookie('token', token, {
             httpOnly: true, // Chặn truy cập từ JavaScript (bảo mật hơn)
             secure: true, // Chỉ gửi trên HTTPS (để đảm bảo an toàn)
-            sameSite: 'Strict', // Chống tấn công CSRF
+            sameSite: 'None', // Chống tấn công CSRF
             maxAge: 15 * 60 * 1000, // 15 phút
         });
 
         res.cookie('logged', 1, {
             httpOnly: false, // Chặn truy cập từ JavaScript (bảo mật hơn)
             secure: true, // Chỉ gửi trên HTTPS (để đảm bảo an toàn)
-            sameSite: 'Strict', // Chống tấn công CSRF
+            sameSite: 'None', // Chống tấn công CSRF
             maxAge: 7 * 24 * 60 * 60 * 1000, // 7 ngày
         });
 
@@ -106,7 +106,7 @@ class controllerUsers {
         res.cookie('refreshToken', refreshToken, {
             httpOnly: true,
             secure: true,
-            sameSite: 'Strict',
+            sameSite: 'None',
             maxAge: 7 * 24 * 60 * 60 * 1000, // 7 ngày
         });
 
@@ -124,19 +124,19 @@ class controllerUsers {
             res.cookie('token', token, {
                 httpOnly: true, // Chặn truy cập từ JavaScript (bảo mật hơn)
                 secure: true, // Chỉ gửi trên HTTPS (để đảm bảo an toàn)
-                sameSite: 'Strict', // Chống tấn công CSRF
+                sameSite: 'None', // Chống tấn công CSRF
                 maxAge: 15 * 60 * 1000, // 15 phút
             });
             res.cookie('logged', 1, {
                 httpOnly: false, // Chặn truy cập từ JavaScript (bảo mật hơn)
                 secure: true, // Chỉ gửi trên HTTPS (để đảm bảo an toàn)
-                sameSite: 'Strict', // Chống tấn công CSRF
+                sameSite: 'None', // Chống tấn công CSRF
                 maxAge: 7 * 24 * 60 * 60 * 1000, // 7 ngày
             });
             res.cookie('refreshToken', refreshToken, {
                 httpOnly: true,
                 secure: true,
-                sameSite: 'Strict',
+                sameSite: 'None',
                 maxAge: 7 * 24 * 60 * 60 * 1000, // 7 ngày
             });
             new OK({ message: 'Đăng nhập thành công', metadata: { token, refreshToken } }).send(res);
@@ -153,19 +153,19 @@ class controllerUsers {
             res.cookie('token', token, {
                 httpOnly: true, // Chặn truy cập từ JavaScript (bảo mật hơn)
                 secure: true, // Chỉ gửi trên HTTPS (để đảm bảo an toàn)
-                sameSite: 'Strict', // ChONGL tấn công CSRF
+                sameSite: 'None', // ChONGL tấn công CSRF
                 maxAge: 15 * 60 * 1000, // 15 phút
             });
             res.cookie('logged', 1, {
                 httpOnly: false, // Chặn truy cập từ JavaScript (bảo mật hơn)
                 secure: true, // Chỉ gửi trên HTTPS (để đảm bảo an toàn)
-                sameSite: 'Strict', // ChONGL tấn công CSRF
+                sameSite: 'None', // ChONGL tấn công CSRF
                 maxAge: 7 * 24 * 60 * 60 * 1000, // 7 ngày
             });
             res.cookie('refreshToken', refreshToken, {
                 httpOnly: true,
                 secure: true,
-                sameSite: 'Strict',
+                sameSite: 'None',
                 maxAge: 7 * 24 * 60 * 60 * 1000, // 7 ngày
             });
             new OK({ message: 'Đăng nhập thành công', metadata: { token, refreshToken } }).send(res);
@@ -203,14 +203,14 @@ class controllerUsers {
         res.cookie('token', token, {
             httpOnly: true, // Chặn truy cập từ JavaScript (bảo mật hơn)
             secure: true, // Chỉ gửi trên HTTPS (để đảm bảo an toàn)
-            sameSite: 'Strict', // Chống tấn công CSRF
+            sameSite: 'None', // Chống tấn công CSRF
             maxAge: 15 * 60 * 1000, // 15 phút
         });
 
         res.cookie('logged', 1, {
             httpOnly: false, // Chặn truy cập từ JavaScript (bảo mật hơn)
             secure: true, // Chỉ gửi trên HTTPS (để đảm bảo an toàn)
-            sameSite: 'Strict', // Chống tấn công CSRF
+            sameSite: 'None', // Chống tấn công CSRF
             maxAge: 7 * 24 * 60 * 60 * 1000, // 7 ngày
         });
 
@@ -645,7 +645,7 @@ class controllerUsers {
 
                 return res
                     .setHeader('Set-Cookie', [
-                        `tokenResetPassword=${token};  Secure; Max-Age=300; Path=/; SameSite=Strict`,
+                        `tokenResetPassword=${token};  Secure; Max-Age=300; Path=/; SameSite=None`,
                     ])
                     .status(200)
                     .json({ message: 'Gửi thành công !!!' });
