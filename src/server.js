@@ -1,21 +1,14 @@
 const express = require("express");
 const app = express();
-const port = process.env.PORT || 3000;
+const port = 3000;
 const fs = require("fs");
 
 const server = require("http").createServer(app);
 const io = require("socket.io")(server, {
   transports: ["websocket"],
   credentials: true,
-  cors: {
-    origin: [
-        process.env.CLIENT_URL, // Domain client trên Vercel
-        "http://localhost:5173" // Domain client khi chạy local (Vite default port)
-    ],
-    methods: ["GET", "POST"],
-    credentials: true
-  }
 });
+
 global.io = io;
 
 require("dotenv").config();
@@ -84,6 +77,6 @@ app.post("/api/add-search", (req, res) => {
   return res.status(200).json({ message: "Thêm từ khóa thành công" });
 });
 
-server.listen(port, '0.0.0.0', () => {
-  console.log(`Server running on port ${port}`);
+server.listen(port, () => {
+  console.log(`Example app listening on port ${port}`);
 });
